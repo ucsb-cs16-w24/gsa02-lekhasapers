@@ -1,6 +1,6 @@
-# STARTER-lab01
+# STARTER-GSA02
 
-Starter code for lab01, M23
+Starter code for GSA02, W24
 
-See: <https://ucsb-cs16.github.io/m23/labs/lab01/>
+See: <https://ucsb-cs16.github.io/w24/gsa02>
 
