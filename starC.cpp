@@ -14,8 +14,16 @@ void runTests(void);
 
 string starC(int width, int height)
 {
+if (height <= 2 || width < 2) {
+	return "";
+}	
   string result = "";
-  result = "stub"; // TODO: remove this line, replace with correct code
+  result += string(width,'*') + "\n";
+ for (int i = 1; i < height-1; ++i) {
+	result +='*' + string(width-1,' ') + "\n";
+ } 
+ result += string(width,'*') + "\n";
+	// TODO: remove this line, replace with correct code
   return result;
 }
 
