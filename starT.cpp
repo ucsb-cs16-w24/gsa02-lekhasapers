@@ -13,10 +13,18 @@ void runTests(void);
 
 string starT(int width, int height)
 {
+  if (height < 2 ||width <3 || width % 2 == 0){
+	  return "";
+  }
   string result = "";
-  result = "stub"; // TODO: remove this line, replace with correct code
-  return result;
-}
+  
+  result += string(width, '*') + "\n";
+  for (int i = 1; i< height; ++i) {
+	  result += string(width/2, ' ') + '*' + string(width/2, ' ') +  "\n";
+  }
+// TODO: remove this line, replace with correct code
+	return result;
+	}
 
 // Test-Driven Development; check expected results against actual
 
@@ -77,7 +85,22 @@ void assertEquals(string expected, string actual, string message = "")
 
 int main(int argc, char *argv[])
 {
+if (argc != 3) {
+	cerr << "Usage: " << argv[0] << " width height" << endl;
+	return(1);
+}
+int width = stoi(argv[1]);
+int height = stoi(argv[2]);
 
+if (width == -1 && height == -1)
+{
+	runTests();
+	exit(0);
+}
+
+cout <<  starT(width, height);
+return 0;
+}
   // TODO: Add check for parameters
   // and code to print usage message
 
@@ -85,10 +108,7 @@ int main(int argc, char *argv[])
   // code that checks if they are both -1; if so, call runTests()
   // then exit.
 
-  runTests();
 
   // TODO: Add code that calls the starT function and prints
   // the result on cout (without an extra newline)
 
-  return 0;
-}
