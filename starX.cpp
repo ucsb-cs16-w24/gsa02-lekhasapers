@@ -4,15 +4,30 @@
 #include <cstdlib>
 #include <string>
 using namespace std;
-
 void assertEquals(string expected, string actual, string message);
 string starX(int width);
 void runTests(void);
 
-string starX(int width)
-{
-  return "stub";
+string starX(int width) {
+    if (width < 3 || width % 2 != 1) {
+        return "";
+    }
+    string result = "";
+
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < width; ++j) {
+            if (i == j || i + j == width - 1) {
+                result += "*";
+            } else {
+                result += " ";
+            }
+        }
+        result += "\n";
+    }
+    return result;
 }
+
+
 
 // Test-Driven Development;
 // check expected results against actual
@@ -66,6 +81,19 @@ void assertEquals(string expected, string actual, string message = "")
 
 int main(int argc, char *argv[])
 {
+	if (argc !=2)
+	{
+		cerr << "Usage: " << argv[0] << "width" << endl;
+		exit(1);
+	}
+	int width= stoi(argv[1]);
+	if (width == -1) {
+		runTests();
+		exit(0);
+	}
+
+	cout << starX(width);
   return 0;
+
 }
 
