@@ -14,9 +14,9 @@ void runTests(void);
 
 string starC(int width, int height)
 {
-if (height <= 2 || width < 2) {
+if (height < 3 || width < 2) {
 	return "";
-}	
+}
   string result = "";
   result += string(width,'*') + "\n";
  for (int i = 1; i < height-1; ++i) {
@@ -90,10 +90,9 @@ int main(int argc, char *argv[])
 int width= stoi(argv[1]);
 int height = stoi(argv[2]);
 
-if( width = -1 && height == -1)
+if( width == -1 && height == -1)
 {
 	runTests();
-	exit(0);
 }
 cout << starC(width,height);
 return 0 ;
